@@ -2,7 +2,7 @@
 A slider component for vue
 自定义banner轮播组件
 banner高度将自动基于iPhone6的基础上，根据屏幕宽度的变化而变化
-*注意：本组件只适用于移动端*
+**注意：本组件只适用于移动端**
 
 # 代码位置
 ```bash
@@ -13,6 +13,7 @@ banner高度将自动基于iPhone6的基础上，根据屏幕宽度的变化而�
 ```html
 1、引入
 import slider from '#####the path of slider.vue'
+
 2、加入标签
 <slider :datas="banners" @click="clickBanner" :config="bannerConfig"/>
 ```
@@ -28,10 +29,10 @@ import slider from '#####the path of slider.vue'
 ```
 # 测试工程启动步骤
 ```
-- git clone https://github.com/novelfans/vue-slider.git
-- npm install
-- npm run dev
-- 在Chrome浏览器中打开: http://localhost:8080/
+1、 git clone https://github.com/novelfans/vue-slider.git
+2、 npm install
+3、 npm run dev
+4、 在Chrome浏览器中打开: http://localhost:8080/
 然后右键-》检查，模拟手机上的展示情况
 ```
 
