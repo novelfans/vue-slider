@@ -15,7 +15,13 @@ banner高度将自动基于iPhone6的基础上，根据屏幕宽度的变化而�
 import slider from '#####the path of slider.vue'
 
 2、加入标签
+示例1：绑定变量的形式传入参数
 <slider :datas="banners" @click="clickBanner" :config="bannerConfig"/>
+
+示例2：直接字面量对象的方式传入参数
+import image from '占位图的路径'
+<slider :datas="banners" @click="clickBanner" :config="{h:140,onColor:'red',placeholderImg:image}"/>
+
 ```
 ```
 其中bannerConfig的完整格式为(未设置的值 则默认按下面)：
