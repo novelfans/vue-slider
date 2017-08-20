@@ -22,6 +22,10 @@ import slider from '#####the path of slider.vue'
 import image from '占位图的路径'
 <slider :datas="banners" @click="clickBanner" :config="{h:140,onColor:'red',placeholderImg:image}"/>
 
+function clickBanner(e) {
+    console.log('click the banner at index:' + e.index)
+}
+
 ```
 ```
 其中bannerConfig的完整格式为(未设置的值 则默认按下面)：
