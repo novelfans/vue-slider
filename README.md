@@ -2,6 +2,9 @@
 A slider component for vue
 自定义banner轮播组件
 banner高度将自动基于iPhone6的基础上，根据屏幕宽度的变化而变化
+<p align="center">
+    <img src="https://github.com/novelfans/vue-slider/blob/master/1.png" alt="运行demo图" title="运行demo图">
+</p>
 **注意：本组件只适用于移动端**
 
 # 代码位置
