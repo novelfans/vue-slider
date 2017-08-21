@@ -58,7 +58,6 @@ export default {
       this.scrollToPage(0)
     },
     setupContentSize: function () {
-      debugger
       var box = this.$refs.sliderbox
       // 高度自适应屏幕
 
