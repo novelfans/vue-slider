@@ -40,8 +40,20 @@ export default {
       }
     }
   },
+  watch: {
+    datas(cur, old) {
+      this.commonInit()
+    }
+  },
   methods: {
-
+    commonInit: function() {
+      this.setupContentSize()
+      this.setupPage()
+      this.setupGesture()
+      this.addClickHandler()
+      this.setupTimer()
+      this.scrollToPage(0)
+    },
     setupContentSize: function () {
       var box = this.$refs.sliderbox
       // 高度自适应屏幕
@@ -142,7 +154,6 @@ export default {
       var pagedots = document.getElementsByClassName('page_dot')
 
       var n = pagedots.length
-      console.log('=============' + page + ':' + n)
       for (var i = 1; i < n; i++) {
         var dot = pagedots[i]
         // dot.setAttribute('class', 'page_dot ' + (i-1 === page ? 'on' : 'off'))
@@ -320,12 +331,7 @@ export default {
   },
   mounted() {
     this.extractOptions()
-    this.setupContentSize()
-    this.setupPage()
-    this.setupGesture()
-    this.addClickHandler()
-    this.setupTimer()
-    this.scrollToPage(0)
+    this.commonInit()
   },
   destroyed() {
     this.stopTimer()
