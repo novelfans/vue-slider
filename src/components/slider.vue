@@ -4,7 +4,7 @@
         <div class="slider_box" ref='sliderbox'>
             <div class="item" v-for="(i,idx) in datas" :key="idx">
                 <div class="placeholder"></div>
-                <img :src="options.key?i[options.key]:i">
+                <img :src="config.key?i[config.key]:i">
             </div>
 
         </div>
@@ -142,14 +142,33 @@ export default {
       var pagedots = document.getElementsByClassName('page_dot')
 
       var n = pagedots.length
+      console.log('=============' + page + ':' + n)
       for (var i = 1; i < n; i++) {
         var dot = pagedots[i]
         // dot.setAttribute('class', 'page_dot ' + (i-1 === page ? 'on' : 'off'))
         if (i - 1 === page) {
-          dot.style.backgroundColor = this.options.onColor
+          dot.style.backgroundColor = this.getColor(this.options.onColor)
+          dot.style.opacity = this.getAlpha(this.options.onColor)
         } else {
-          dot.style.backgroundColor = this.options.offColor
+          dot.style.backgroundColor = this.getColor(this.options.offColor)
+          dot.style.opacity = this.getAlpha(this.options.offColor)
         }
+      }
+    },
+    getColor: function(color) {
+      let idx = color.indexOf('|')
+      if (idx !== -1) {
+        return color.substr(idx)
+      } else {
+        return color
+      }
+    },
+    getAlpha: function(color) {
+      let idx = color.indexOf('|')
+      if (idx !== -1) {
+        return parseFloat(color.substring(idx + 1))
+      } else {
+        return 1.0
       }
     },
     limitOffset: function (x, end) {

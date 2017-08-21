@@ -33,6 +33,10 @@ function clickBanner(e) {
 ```
 ```
 其中bannerConfig的完整格式为(未设置的值 则默认按下面)：
+颜色格式:
+1、诸如red、white
+2、不带alpha: #fff、#ff508a
+3、带alpha: #ff508a|0.5 (alpha取值范围0~1)
 {
     slideAnimate: '0.8s',       //设置动画时间
     onColor: 'red',             //设置banner选中-小圆点颜色
