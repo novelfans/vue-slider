@@ -9,13 +9,14 @@ banner高度将自动基于iPhone6的基础上，根据屏幕宽度的变化而�
 
 # 代码位置
 ```bash
+只需拷贝这个文件到你工程即可
 ./src/components/slider.vue
 ```
 
 # 用法：
 ```html
 1、引入
-import slider from '#####the path of slider.vue'
+import slider from 'the path of slider.vue'
 
 2、加入标签
 示例1：绑定变量的形式传入参数
@@ -38,6 +39,7 @@ function clickBanner(e) {
     offColor: 'white',          //设置banner未选中-小圆点颜色
     h: 150,                     //设置banner高度
     placeholderImg: ''          //设置placeholder image
+    key:''                      //banner.img.src = datas[i].key
 }Ï
 ```
 # 测试工程启动步骤
