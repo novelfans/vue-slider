@@ -42,11 +42,14 @@ export default {
   },
   watch: {
     datas(cur, old) {
-      this.commonInit()
+      this.$nextTick(() => {
+        this.commonInit()
+      })
     }
   },
   methods: {
     commonInit: function() {
+      this.extractOptions()
       this.setupContentSize()
       this.setupPage()
       this.setupGesture()
@@ -55,11 +58,11 @@ export default {
       this.scrollToPage(0)
     },
     setupContentSize: function () {
+      debugger
       var box = this.$refs.sliderbox
       // 高度自适应屏幕
 
       var realH = box.parentNode.offsetWidth / 375.0 * this.options.h
-      console.log('width:' + box.parentNode.offsetWidth + 'realH:' + realH)
       box.style.height = realH + 'px'
 
       var imgW = box.parentNode.offsetWidth
@@ -330,7 +333,6 @@ export default {
     }
   },
   mounted() {
-    this.extractOptions()
     this.commonInit()
   },
   destroyed() {
