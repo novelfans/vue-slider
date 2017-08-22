@@ -76,8 +76,7 @@ export default {
         if (item.nodeName === 'DIV') {
           item.style.width = imgW + 'px'
           item.style.height = height + 'px'
-          item.index = idx
-
+          item.setAttribute('index', '' + idx)
           var placeholder = item.getElementsByClassName('placeholder')[0]
 
           placeholder.style.backgroundImage = 'url(' + this.options.placeholderImg + ')'
@@ -278,7 +277,8 @@ export default {
         if (item.nodeName === 'DIV') {
           var self = this
           item.addEventListener('click', e => {
-            self.$emit('click', { index: e.currentTarget.index })
+            let idx = parseInt(e.currentTarget.getAttribute('index'))
+            self.$emit('click', { index: idx })
           })
         }
       }
