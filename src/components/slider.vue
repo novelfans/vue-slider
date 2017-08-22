@@ -1,17 +1,17 @@
 
 <template>
-    <div class="slider_wraper">
-        <div class="slider_box" ref='sliderbox'>
-            <div class="item" v-for="(i,idx) in datas" :key="idx">
-                <div class="placeholder"></div>
-                <img :src="config.key?i[config.key]:i">
-            </div>
+  <div class="slider_wraper">
+    <div class="slider_box" ref='sliderbox'>
+      <div class="item" v-for="(i,idx) in datas" :key="idx">
+        <div class="placeholder"></div>
+        <img :src="config.key?i[config.key]:i">
+      </div>
 
-        </div>
-        <div class="page_box" ref='pagebox'>
-            <span class="page_dot" ref='pagedot' style='display:none'></span>
-        </div>
     </div>
+    <div class="page_box" ref='pagebox'>
+      <span class="page_dot" ref='pagedot' style='display:none'></span>
+    </div>
+  </div>
 </template>
 
 
@@ -48,7 +48,7 @@ export default {
     }
   },
   methods: {
-    commonInit: function() {
+    commonInit: function () {
       this.extractOptions()
       this.setupContentSize()
       this.setupPage()
@@ -58,7 +58,6 @@ export default {
       this.scrollToPage(0)
     },
     setupContentSize: function () {
-      debugger
       var box = this.$refs.sliderbox
       // 高度自适应屏幕
 
@@ -169,7 +168,7 @@ export default {
         }
       }
     },
-    getColor: function(color) {
+    getColor: function (color) {
       let idx = color.indexOf('|')
       if (idx !== -1) {
         return color.substr(idx)
@@ -177,7 +176,7 @@ export default {
         return color
       }
     },
-    getAlpha: function(color) {
+    getAlpha: function (color) {
       let idx = color.indexOf('|')
       if (idx !== -1) {
         return parseFloat(color.substring(idx + 1))
@@ -343,60 +342,60 @@ export default {
 
 <style lang="scss" scoped>
 .slider_wraper {
-    position: relative;
+  position: relative;
+  overflow: hidden;
+  .slider_box {
     overflow: hidden;
-    .slider_box {
-        overflow: hidden;
-        height: 150px;
-        position: relative;
-        .item {
-            display: block;
-            float: left;
-            position: relative;
-            img {
-                display: block;
-                width: 100%;
-            }
-            .placeholder {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-            }
-        }
-        &:after {
-            content: '';
-            clear: both;
-            display: block;
-            height: 0;
-            clear: both;
-            visibility: hidden;
-        }
-    }
-    .page_box {
+    height: 150px;
+    position: relative;
+    .item {
+      display: block;
+      float: left;
+      position: relative;
+      img {
+        display: block;
+        width: 100%;
+      }
+      .placeholder {
         position: absolute;
+        top: 0;
         left: 0;
         right: 0;
-        bottom: 0px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        .page_dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            margin: 0px 4px;
-        }
-
-        .on {
-            background: red;
-        }
-
-        .off {
-            background: white;
-        }
+        bottom: 0;
+      }
     }
+    &:after {
+      content: '';
+      clear: both;
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+  .page_box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    .page_dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin: 0px 4px;
+    }
+
+    .on {
+      background: red;
+    }
+
+    .off {
+      background: white;
+    }
+  }
 }
 </style>
