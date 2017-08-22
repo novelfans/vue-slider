@@ -4,7 +4,7 @@
     <div class="slider_box" ref='sliderbox'>
       <div class="item" v-for="(i,idx) in datas" :key="idx">
         <div class="placeholder"></div>
-        <img :src="config.key?i[config.key]:i">
+        <img :src="config.key?i[config.key] + '1':i">
       </div>
 
     </div>
@@ -81,7 +81,6 @@ export default {
 
           placeholder.style.backgroundImage = 'url(' + this.options.placeholderImg + ')'
           placeholder.style.backgroundSize = '100%'
-          placeholder.style.zIndex = -1
           sumw += imgW
           if (!firstImg) {
             firstImg = item
@@ -355,6 +354,7 @@ export default {
       img {
         display: block;
         width: 100%;
+        position: relative;
       }
       .placeholder {
         position: absolute;
