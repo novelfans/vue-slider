@@ -4,7 +4,7 @@
     <div class="slider_box" ref='sliderbox'>
       <div class="item" v-for="(i,idx) in datas" :key="idx">
         <div class="placeholder"></div>
-        <img :src="config.key?i[config.key] + '1':i">
+        <img :src="config.key?i[config.key]:i">
       </div>
 
     </div>
