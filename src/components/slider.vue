@@ -81,7 +81,6 @@ export default {
 
           placeholder.style.backgroundImage = 'url(' + this.options.placeholderImg + ')'
           placeholder.style.backgroundSize = '100%'
-          placeholder.style.zIndex = -1
           sumw += imgW
           if (!firstImg) {
             firstImg = item
@@ -170,7 +169,7 @@ export default {
     getColor: function (color) {
       let idx = color.indexOf('|')
       if (idx !== -1) {
-        return color.substr(idx)
+        return color.substr(0, idx)
       } else {
         return color
       }
@@ -178,9 +177,9 @@ export default {
     getAlpha: function (color) {
       let idx = color.indexOf('|')
       if (idx !== -1) {
-        return parseFloat(color.substring(idx + 1))
+        return color.substring(idx + 1)
       } else {
-        return 1.0
+        return '1.0'
       }
     },
     limitOffset: function (x, end) {
@@ -355,6 +354,7 @@ export default {
       img {
         display: block;
         width: 100%;
+        position: relative;
       }
       .placeholder {
         position: absolute;
